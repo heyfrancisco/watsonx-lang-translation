@@ -15,5 +15,5 @@ This repository is based on [Mateusz Szewczyk's](https://github.com/IBM/watson-m
 4. Rename the file `example.env.py` to `env.py`.
 5. Run the script:
   ```
-  $ python3 translation.py
+  $ python3 main.py
   ```
