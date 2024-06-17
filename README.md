@@ -13,3 +13,7 @@ This repository is based on [Mateusz Szewczyk's](https://github.com/IBM/watson-m
   ```
 3. Edit `example.env.py` file with your IBM Cloud API Key, and watsonx Project ID.
 4. Rename the file `example.env.py` to `env.py`.
+5. Run the script:
+  ```
+  $ python3 translation.py
+  ```
