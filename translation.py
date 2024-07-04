@@ -1,10 +1,10 @@
 import getpass
 import os
+from env import *
 from ibm_watsonx_ai.foundation_models import get_model_specs
 from ibm_watsonx_ai.metanames import GenTextParamsMetaNames as GenParams
 from ibm_watsonx_ai.foundation_models.utils.enums import DecodingMethods
 from ibm_watsonx_ai.foundation_models import ModelInference
-from env import *
 
 ## Endpoints ML WatsonX
 ## London "url": "https://eu-gb.ml.cloud.ibm.com"
@@ -52,21 +52,23 @@ model = ModelInference(
   project_id=project_id
 )
 
-## Print Model Details
-#print(model.get_details())
+# Function to prompt the user for input text
+def get_user_input():
+    return input("Enter the text you want to translate from English to Spanish: ")
 
-## Translation Text based a Query
-english_to_spanish_query = """Translate the following text from English to Spanish:
+user_input_text = get_user_input()
+
+english_to_spanish_query = f"""Translate the following text from English to Spanish:
 
 Input: So far, I have not been terribly encouraged by the stance adopted by the Commission.
 Output: Hasta ahora no me ha animado mucho la postura adoptada por la Comisión.
 
-Input: I am very pleased to see that the joint resolution adopts the suggestion we made.
+Input: {user_input_text}
+Output:
 """
+
 
 ## Translation Result from Query
 translation_result = model.generate_text(english_to_spanish_query)
-
 ## Print Result
 print(translation_result)
-
